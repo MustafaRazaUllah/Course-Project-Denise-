@@ -1,9 +1,30 @@
+import 'package:first_time_project/App%20Modules/Auth/View/login_screen.dart';
 import 'package:first_time_project/Utils/custom_text.dart';
 import 'package:first_time_project/Utils/images.dart';
 import 'package:flutter/material.dart';
 
-class SplashView extends StatelessWidget {
+class SplashView extends StatefulWidget {
   const SplashView({super.key});
+
+  @override
+  State<SplashView> createState() => _SplashViewState();
+}
+
+class _SplashViewState extends State<SplashView> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Future.delayed(const Duration(seconds: 3), () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const LoginScreen(),
+        ),
+      );
+      print("Method Call");
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
