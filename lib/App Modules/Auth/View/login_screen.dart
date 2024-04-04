@@ -1,3 +1,4 @@
+import 'package:first_time_project/App%20Modules/Home/View/homeview.dart';
 import 'package:first_time_project/Utils/custom_text.dart';
 import 'package:flutter/material.dart';
 
@@ -155,23 +156,38 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 30),
-                Container(
-                  height: 50,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.amber,
-                    border: Border.all(
-                      width: 2,
-                      color: Colors.green,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const HomeView(),
+                      ),
+                      (route) => false,
+                    );
+                    //
+                  },
+                  // onTap(){
+                  //   // HomeView
+                  // },
+                  child: Container(
+                    height: 50,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.amber,
+                      border: Border.all(
+                        width: 2,
+                        color: Colors.green,
+                      ),
                     ),
-                  ),
-                  child: const Center(
-                    child: CustomText(
-                      title: "Login",
-                      color: Colors.red,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600,
+                    child: const Center(
+                      child: CustomText(
+                        title: "Login",
+                        color: Colors.red,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
                 ),
