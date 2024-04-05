@@ -33,11 +33,12 @@ class HomeView extends StatelessWidget {
             SizedBox(
               height: 100,
               width: double.infinity,
-              child: ListView(
+              child: ListView.builder(
                 padding: const EdgeInsets.only(left: 15),
                 scrollDirection: Axis.horizontal,
-                children: [
-                  Container(
+                itemCount: 20,
+                itemBuilder: (BuildContext context, int index) {
+                  return Container(
                     height: 80,
                     width: 140,
                     margin: const EdgeInsets.only(right: 15),
@@ -45,53 +46,16 @@ class HomeView extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                       color: Colors.amber,
                     ),
-                  ),
-                  Container(
-                    height: 80,
-                    width: 140,
-                    margin: const EdgeInsets.only(right: 15),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.pink,
+                    child: Center(
+                      child: CustomText(
+                        title: index.toString(),
+                        fontSize: 30,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black,
+                      ),
                     ),
-                  ),
-                  Container(
-                    height: 80,
-                    width: 140,
-                    margin: const EdgeInsets.only(right: 15),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.green,
-                    ),
-                  ),
-                  Container(
-                    height: 80,
-                    width: 140,
-                    margin: const EdgeInsets.only(right: 15),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.purple,
-                    ),
-                  ),
-                  Container(
-                    height: 80,
-                    width: 140,
-                    margin: const EdgeInsets.only(right: 15),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.orange,
-                    ),
-                  ),
-                  Container(
-                    height: 80,
-                    width: 140,
-                    margin: const EdgeInsets.only(right: 15),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.blue,
-                    ),
-                  ),
-                ],
+                  );
+                },
               ),
             ),
             const SizedBox(height: 20),
@@ -106,178 +70,71 @@ class HomeView extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             Expanded(
-              child: SizedBox(
-                // height: 100,
-                width: double.infinity,
-                child: ListView(
-                  shrinkWrap: true,
-                  padding: const EdgeInsets.only(left: 15, right: 15),
-                  scrollDirection: Axis.vertical,
-                  children: [
-                    Container(
-                      height: 80,
-                      width: 140,
-                      margin: const EdgeInsets.only(bottom: 15),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.amber,
-                      ),
+              child: ListView(
+                padding: EdgeInsets.zero,
+                shrinkWrap: true,
+                children: [
+                  SizedBox(
+                    // height: 100,
+                    width: double.infinity,
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      padding: const EdgeInsets.only(left: 15, right: 15),
+                      scrollDirection: Axis.vertical,
+                      itemCount: 30,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Container(
+                          height: 80,
+                          width: 140,
+                          margin: const EdgeInsets.only(bottom: 15),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.purple,
+                          ),
+                          child: Center(
+                            child: CustomText(
+                              title: index.toString(),
+                              fontSize: 30,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black,
+                            ),
+                          ),
+                        );
+                      },
                     ),
-                    Container(
-                      height: 80,
-                      width: 140,
-                      margin: const EdgeInsets.only(bottom: 15),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.pink,
+                  ),
+                  MediaQuery.removePadding(
+                    context: context,
+                    removeTop: true,
+                    child: GridView.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 5,
+                        mainAxisSpacing: 0,
+                        crossAxisSpacing: 0,
                       ),
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: 30,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Card(
+                          color: Colors.green,
+                          child: Center(
+                            child: Center(
+                              child: CustomText(
+                                title: index.toString(),
+                                fontSize: 30,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                        );
+                      },
                     ),
-                    Container(
-                      height: 80,
-                      width: 140,
-                      margin: const EdgeInsets.only(bottom: 15),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.green,
-                      ),
-                    ),
-                    Container(
-                      height: 80,
-                      width: 140,
-                      margin: const EdgeInsets.only(bottom: 15),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.purple,
-                      ),
-                    ),
-                    Container(
-                      height: 80,
-                      width: 140,
-                      margin: const EdgeInsets.only(bottom: 15),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.orange,
-                      ),
-                    ),
-                    Container(
-                      height: 80,
-                      width: 140,
-                      margin: const EdgeInsets.only(bottom: 15),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.blue,
-                      ),
-                    ),
-                    Container(
-                      height: 80,
-                      width: 140,
-                      margin: const EdgeInsets.only(bottom: 15),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.amber,
-                      ),
-                    ),
-                    Container(
-                      height: 80,
-                      width: 140,
-                      margin: const EdgeInsets.only(bottom: 15),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.pink,
-                      ),
-                    ),
-                    Container(
-                      height: 80,
-                      width: 140,
-                      margin: const EdgeInsets.only(bottom: 15),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.green,
-                      ),
-                    ),
-                    Container(
-                      height: 80,
-                      width: 140,
-                      margin: const EdgeInsets.only(bottom: 15),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.purple,
-                      ),
-                    ),
-                    Container(
-                      height: 80,
-                      width: 140,
-                      margin: const EdgeInsets.only(bottom: 15),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.orange,
-                      ),
-                    ),
-                    Container(
-                      height: 80,
-                      width: 140,
-                      margin: const EdgeInsets.only(bottom: 15),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.blue,
-                      ),
-                    ),
-                    Container(
-                      height: 80,
-                      width: 140,
-                      margin: const EdgeInsets.only(bottom: 15),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.amber,
-                      ),
-                    ),
-                    Container(
-                      height: 80,
-                      width: 140,
-                      margin: const EdgeInsets.only(bottom: 15),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.pink,
-                      ),
-                    ),
-                    Container(
-                      height: 80,
-                      width: 140,
-                      margin: const EdgeInsets.only(bottom: 15),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.green,
-                      ),
-                    ),
-                    Container(
-                      height: 80,
-                      width: 140,
-                      margin: const EdgeInsets.only(bottom: 15),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.purple,
-                      ),
-                    ),
-                    Container(
-                      height: 80,
-                      width: 140,
-                      margin: const EdgeInsets.only(bottom: 15),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.orange,
-                      ),
-                    ),
-                    Container(
-                      height: 80,
-                      width: 140,
-                      margin: const EdgeInsets.only(bottom: 15),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.blue,
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ],
